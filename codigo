@@ -1,0 +1,53 @@
+#include <stdio.h>
+
+char* mediaDescricao(int mes) {
+	switch(mes) {
+		case 1:
+			return "Nota";
+		case 2:
+			return "Nota";
+		case 3:
+			return "Nota";
+		case 4:
+			return "Nota";
+		case 5:
+			return "Nota";
+		case 6:
+			return "Nota";
+		
+
+		default:
+			return "[Indisponível]";
+	}
+}
+
+int main(void) {
+	float notas[6];
+	float total = 0;
+	int piorNota = 0, melhorNota = 0;
+
+	printf("Vamos avaliar , informe:\n");
+
+	for(int i = 0; i < 6; i++) {
+		printf("Rsesultados em %s: ", mediaDescricao(i+1));
+
+		scanf("%f", &notas[i]);
+
+		total += notas[i];
+
+		if(notas[piorNota] > notas[i]) {
+			piorNota = i;
+		}
+
+		if(notas[melhorNota] < notas[i]) {
+			melhorNota = i;
+		}
+	}
+
+	printf("Totalizando >>>>>>>>>>>>>>>\n");
+	printf("Media das Notas foi R$ %.2f\n", total / 6);
+	printf("Melhor nota foi em %s (R$ %.2f)\n", mediaDescricao(melhorNota + 1), notas[melhorNota]);
+	printf("Pior nota foi em %s (R$ %.2f)\n", mediaDescricao(piorNota + 1), notas[piorNota]);
+
+  	return 0;
+}
